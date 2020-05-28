@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
               <h3 class="login-heading mb-4">Registro de Servicio</h3>
-              <form action="RegServicioController" method="post">
+              <form action="ServicesController" method="post">
                 <div class="form-label-group">
                   <input type="text" id="inputNombre" name="nombre" class="form-control" placeholder="Nombre" required autofocus>
                   <label for="inputNombre">Nombre</label>
