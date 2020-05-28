@@ -36,13 +36,22 @@ public class Tienda implements Serializable {
 
 	private String web;
 
-	//bi-directional many-to-many association to Cliente
-//	@OneToMany(mappedBy="tiendaBean")
-	private List<Cliente> clientes;
-
 	//bi-directional many-to-one association to Servicio
 	@OneToMany(mappedBy="tiendaBean")
 	private List<Servicio> servicios;
+
+	//bi-directional many-to-many association to Cliente
+	@ManyToMany
+	@JoinTable(
+		name="seguir"
+		, joinColumns={
+			@JoinColumn(name="tienda")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="cliente")
+			}
+		)
+	private List<Cliente> clientes;
 
 	public Tienda() {
 	}
@@ -127,14 +136,6 @@ public class Tienda implements Serializable {
 		this.web = web;
 	}
 
-	public List<Cliente> getClientes() {
-		return this.clientes;
-	}
-
-	public void setClientes(List<Cliente> clientes) {
-		this.clientes = clientes;
-	}
-
 	public List<Servicio> getServicios() {
 		return this.servicios;
 	}
@@ -155,6 +156,14 @@ public class Tienda implements Serializable {
 		servicio.setTiendaBean(null);
 
 		return servicio;
+	}
+
+	public List<Cliente> getClientes() {
+		return this.clientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		this.clientes = clientes;
 	}
 
 }
