@@ -17,7 +17,7 @@ public class Servicio implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 
-	private Object descripcion;
+	private String descripcion;
 
 	private String nombre;
 
@@ -37,11 +37,11 @@ public class Servicio implements Serializable {
 		this.id = id;
 	}
 
-	public Object getDescripcion() {
+	public String getDescripcion() {
 		return this.descripcion;
 	}
 
-	public void setDescripcion(Object descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 

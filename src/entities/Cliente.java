@@ -25,7 +25,7 @@ public class Cliente implements Serializable {
 	private String nombre;
 
 	//bi-directional many-to-many association to Tienda
-	@ManyToMany(mappedBy="clientes")
+	//@ManyToMany(mappedBy="clientes")
 	private List<Tienda> tiendas;
 
 	public Cliente() {

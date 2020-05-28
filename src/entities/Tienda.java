@@ -20,7 +20,7 @@ public class Tienda implements Serializable {
 
 	private String clave;
 
-	private Object descripcion;
+	private String descripcion;
 
 	private String email;
 
@@ -37,16 +37,7 @@ public class Tienda implements Serializable {
 	private String web;
 
 	//bi-directional many-to-many association to Cliente
-	@ManyToMany
-	@JoinTable(
-		name="seguir"
-		, joinColumns={
-			@JoinColumn(name="tienda")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="cliente")
-			}
-		)
+//	@OneToMany(mappedBy="tiendaBean")
 	private List<Cliente> clientes;
 
 	//bi-directional many-to-one association to Servicio
@@ -72,11 +63,11 @@ public class Tienda implements Serializable {
 		this.clave = clave;
 	}
 
-	public Object getDescripcion() {
+	public String getDescripcion() {
 		return this.descripcion;
 	}
 
-	public void setDescripcion(Object descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
